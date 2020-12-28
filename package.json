@@ -4,6 +4,7 @@
   "description": "A student teacher assignment app with register and login for student and teacher (Coding Ninjas Web Test)",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
