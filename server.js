@@ -1,19 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
-const tasks = require('./routes/api/tasks');
+
 
 const app = express();
 
 //Bodyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 //Connect to db
 const db = require('./config/mongoose');
 
 //Use routes
-app.use('/api/tasks',tasks);
+app.use('/api/tasks',require('./routes/api/tasks'));
+app.use('/api/user',require('./routes/api/user'));
 
 
 //Express server
