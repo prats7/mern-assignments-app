@@ -4,6 +4,7 @@ const User = require('../../models/User');
 const router =  express.Router();
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/auth')
 
 //User model
 const Task = require('../../models/User');
@@ -49,5 +50,13 @@ router.post('/',(req, res) => {
     });
 });
 
+//GET api/auth/user
+//Get user data
+//Private
+router.get('/user',auth,(req,res) => {
+    User.findById(req.user.id)
+    .select('-password')
+    .then(user => res.json(user))
+});
 
 module.exports = router;
