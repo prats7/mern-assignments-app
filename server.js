@@ -14,6 +14,7 @@ const db = require('./config/mongoose');
 //Use routes
 app.use('/api/tasks',require('./routes/api/tasks'));
 app.use('/api/user',require('./routes/api/user'));
+app.use('/api/auth',require('./routes/api/auth'));
 
 
 //Express server
