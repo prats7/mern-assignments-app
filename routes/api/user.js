@@ -1,12 +1,11 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
 const router =  express.Router();
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
 //User model
-const Task = require('../../models/User');
+const User = require('../../models/User');
 
 // @route GET api/users
 // @route  Register new user
@@ -53,14 +52,6 @@ router.post('/',(req, res) => {
                             })
                         }
                     )
-
-                    res.json({
-                        user: {
-                            id: user.id,
-                            name: user.name,
-                            email: user.email
-                        }
-                    });
                 });
             });
         })

@@ -1,20 +1,18 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
 const router =  express.Router();
 const config = require('config');
 const jwt = require('jsonwebtoken');
-const auth = require('../../middleware/auth')
 
 //User model
-const Task = require('../../models/User');
+const User = require('../../models/User');
 
 //user auth
 router.post('/',(req, res) => {
-    const { name,email,password } = req.body;
+    const { email,password } = req.body;
 
     //validation
-    if(!name || !email || !password){
+    if(!email || !password){
         return res.status(400).json({msg: 'Please enter all fields'});
     }
 
@@ -50,13 +48,5 @@ router.post('/',(req, res) => {
     });
 });
 
-//GET api/auth/user
-//Get user data
-//Private
-router.get('/user',auth,(req,res) => {
-    User.findById(req.user.id)
-    .select('-password')
-    .then(user => res.json(user))
-});
 
 module.exports = router;
