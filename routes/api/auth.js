@@ -9,17 +9,17 @@ const User = require('../../models/User');
 
 //user auth
 router.post('/',(req, res) => {
-    const { email,password } = req.body;
+    const { userType,email,password } = req.body;
 
     //validation
-    if(!email || !password){
+    if(!userType || !email || !password){
         return res.status(400).json({msg: 'Please enter all fields'});
     }
 
     //Find user
-    User.findOne({ email })
+    User.findOne({ email,userType })
     .then(user => {
-        if(!user) return res.status(400).json({ msg : "User doesn't exists "});
+        if(!user ) return res.status(400).json({ msg : "User doesn't exists "});
 
         
         //Validate password
@@ -36,6 +36,7 @@ router.post('/',(req, res) => {
                         token,
                         user: {
                             id: user.id,
+                            userType: user.userType,
                             name: user.name,
                             email: user.email
                         }

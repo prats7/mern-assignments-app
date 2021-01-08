@@ -14,11 +14,22 @@ College Management app is a full stack MERN application with React-redux client 
 * You can start app in backend production mode using command : npm start .
 
     * **Register**
-        - Click on register button.
+        - Click on Register button.
+        - Register as a Teacher or Student.
 
     * **Login**
-        - Click on login button.
-        - Add assignments click on add button .
+        - Click on Login button.
+        - Login as Teacher or Student.
+
+    * **Dashboards**
+        * Teacher’s dashboard
+            - Only Teacher will be able to add and delete assignments.
+            - Add assignments click on add button .
+            - Delete particular assignment on clicking Delete button.
+
+        * Student Dashboard
+            - Student can have access to assignments with Teacher Name and Subject.
+            
 
 
 ---
@@ -26,10 +37,11 @@ College Management app is a full stack MERN application with React-redux client 
 ### LANGUAGES/FRAMEWORKS/TECHNOLOGIES
 | | |
 | ------ | ------ |
-| **Frontend** | React; Redux; |
+| **Frontend** | React; Redux; reactstrap |
 | **Server** | Node.js; Express.js; |
 | **Database** | MongoDB; Mongoose |
 | **User Authentication** | jsonwebtoken; bcryptjs |
+| **Other Dependencies** | Concurrently; axios; |
 
 ---
 
